@@ -1,0 +1,13 @@
+youtube|https://www.youtube.com/
+ent|https://ent.uca.fr/cas/login?service=https%3A%2F%2Fent.uca.fr%2Fcore%2Fhome%2F
+color|https://htmlcolorcodes.com/fr/
+mailFailer|https://mail.google.com/mail/u/0/?ogbl#inbox
+mailPro|https://mail.google.com/mail/u/1/?ogbl#inbox
+drive:Failer|https://drive.google.com/drive/u/0/my-drive
+drive:Pro|https://drive.google.com/drive/u/1/my-drive
+localhost|localhost
+github|https://github.com
+latex-Symbols|https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols
+wordReference|https://www.wordreference.com/fr/
+cheat-sheet|https://devhints.io/
+quit|quit

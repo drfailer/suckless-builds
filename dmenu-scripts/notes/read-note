@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Script for browsing compiled notes:
+
+readTag() {
+  tag=$(ls $1 | dmenu -l 20 -p "Chose a Tag: ")
+}
+
+readTopic() {
+  file=$(ls $1 | sed -e 's/.pdf//g' | dmenu -l 20 -p "Chose a Topic: ")
+}
+
+tag=""
+file=""
+readTag "$HOME/.local/share/notes/build"
+if [[ $tag != "" ]]; then
+  readTopic "$HOME/.local/share/notes/build/$tag"
+fi
+if [[ $file != "" ]]; then
+  zathura "$HOME/.local/share/notes/build/$tag/$file.pdf"
+fi

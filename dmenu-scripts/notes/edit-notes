@@ -1,0 +1,87 @@
+#!/bin/bash
+
+# Simple note taking system using dmenu
+
+warningMessage() {
+  echo "remove path:"
+  echo $1
+  resp=$(printf "no\nyes\n" | dmenu -p 'confirme deletion: ')
+  echo $resp
+  if [[ $resp =~ yes ]]; then
+    if [[ $1 =~ \.md ]]; then
+      rm $1
+      rm $(echo "$1" | sed -e 's/src/build/g' | sed -e 's/\.md/\.pdf/g')
+    else
+      rm -rf $1
+      rm -rf $(echo "$1" | sed -e 's/src/build/g')
+      rm -rf $(echo "$1" | sed -e 's/src/img/g')
+    fi
+  fi
+}
+
+# Tag selection (directory):
+choseTag() {
+  tag=$(printf "$(ls $1)\nremove-mode\n" | dmenu -l 20 -p "Select a Tag: ")
+  path="$1/$tag"
+  if [[ $tag != '' && $tag != "remove-mode" ]]; then
+    # create directory in build:
+    buildpath=$(echo $path | sed -e 's/src/build/g')
+    if [[ ! -d $buildpath ]]; then
+      mkdir -p $buildpath
+    fi
+    # create directory in img:
+    imgpath=$(echo $path | sed -e 's/src/img/g')
+    if [[ ! -d $imgpath ]]; then
+      mkdir -p $imgpath
+    fi
+    # create directory in src:
+    if [[ ! -d $path ]]; then
+      mkdir -p $path
+    fi
+  elif [[ $tag == "remove-mode" ]]; then
+    toremove=$(ls $1 | dmenu -l 20 -p "! remove-mode: ")
+    if [[ $toremove != '' ]]; then
+      echo "remove"
+      echo "$1/$toremove"
+      warningMessage "$1/$toremove"
+    fi
+  fi
+}
+
+
+# Topic selection (markdown file):
+choseTopic() {
+  topic=$(printf "$(ls $1)\nremove-mode\n" | sed -e 's/\.md//g' | dmenu -l 20 -p "Select a Topic: ")
+  if [[ $topic != '' && $topic != "remove-mode" ]]; then
+    file="$1/$topic.md"
+    if [[ ! -f $file ]]; then
+      touch $file
+cat << EOF > $file
+---
+title: $(echo "$topic" | sed -e 's/.*/\u&/g' | sed -e 's/_/ /g')
+author: $USER
+tag: [$tag]
+---
+EOF
+    fi
+  elif [[ $topic == "remove-mode" ]]; then
+    toremove=$(ls $1 | dmenu -l 20 -p "! remove-mode: ")
+    if [[ $toremove != '' ]]; then
+      warningMessage "$1/$toremove"
+    fi
+  fi
+}
+
+compile() {
+  pandoc -V geometry:margin=1in -o "$(echo $1 | sed -e 's/.md/.pdf/g' | sed -e 's/src/build/g')" $1 2> /dev/null
+}
+
+tag=""
+file=""
+choseTag  "$HOME/.local/share/notes/src"
+if [[ $tag != "" && $tag != "remove-mode" ]]; then
+  choseTopic  "$HOME/.local/share/notes/src/$tag"
+fi
+if [[ $file != "" && $file != "remove-mode" ]]; then
+  alacritty -e nvim -c % "$file" && compile "$file"
+fi

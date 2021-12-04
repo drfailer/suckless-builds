@@ -1,0 +1,17 @@
+#!/bin/sh
+
+declare -a choices=("1.0"
+                    "0.9"
+                    "0.8"
+                    "0.7"
+                    "0.6"
+                    "0.5"
+                   )
+
+
+# chosing value with dmenu and apply usin xrandr:
+userChoice=$(echo "$(printf '%s\n' "${choices[@]}")" | dmenu -l 20 -p 'Chose a brithness: ')
+if [ ! -z $userChoice ]
+then
+  xrandr -output eDP1 --brithness $userChoice
+fi

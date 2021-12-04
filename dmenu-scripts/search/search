@@ -1,0 +1,23 @@
+#!/bin/bash
+
+research=$(cut -d '|' -f1 $HOME/.scripts/dmenu/search/library.txt | dmenu -l 20 -p 'search: ')
+
+if [[ $research =~ ^q:.*$ ]]; then
+  browser="qutebrowser"
+  research=$(echo $research | sed -e 's/^q://g')
+else
+  browser="firefox"
+fi
+
+if [[ $(grep "^$research|" $HOME/.scripts/dmenu/search/library.txt | wc -l) != 0 ]]; then
+  if [[ ! $research =~ ^quit.*$ && $research != '' && $research != "localhost" ]]; then
+    url=$(grep $research $HOME/.scripts/dmenu/search/library.txt | cut -d '|' -f2)
+    firefox $url &
+  elif [[ $research == "localhost" ]]; then
+    url="localhost:$(dmenu -l 20 -p 'Chose a port: ')"
+    $browser $url &
+  fi
+elif [[ $research != '' ]]; then
+    url="https://www.google.com/search?q=$(echo "${research}" | tr ' ' '+')"
+    $browser $url &
+fi

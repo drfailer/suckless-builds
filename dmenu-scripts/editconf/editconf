@@ -1,0 +1,78 @@
+#!/bin/bash
+
+declare -a configs=("xmonad"
+                    "xmobar"
+                    "xmobardark"
+                    "alacritty"
+                    "zshrc"
+                    "vim:init"
+                    "vim:settings"
+                    "vim:mapping"
+                    "vim:which-key"
+                    "vim:vim-plug"
+                    "vim:startify"
+                    "vim:coc-setting"
+                    "picom"
+                    "bookmark-firefox"
+                    "qutebrowser"
+                    "quit"
+                   )
+
+choice=$(echo "$(printf '%s\n' "${configs[@]}")" | dmenu -l 20 -p 'Edit config file: ')
+case "$choice" in
+  xmonad)
+    file="$HOME/.xmonad/xmonad.hs"
+    ;;
+  xmobar)
+    file="$HOME/.config/xmobar/xmobarrc"
+    ;;
+  xmobardark)
+    file="$HOME/.config/xmobar/xmobardark"
+    ;;
+  alacritty)
+    file="$HOME/.config/alacritty/alacritty.yml"
+    ;;
+  zshrc)
+    file="$HOME/.config/zsh/.zshrc"
+    ;;
+  vim:init)
+    file="$HOME/.config/nvim/init.vim"
+    ;;
+  vim:settings)
+    file="$HOME/.config/nvim/general/settings.vim"
+    ;;
+  vim:mapping)
+    file="$HOME/.config/nvim/keys/mappings.vim"
+    ;;
+  vim:which-key)
+    file="$HOME/.config/nvim/keys/which-key.vim"
+    ;;
+  vim:vim-plug)
+    file="$HOME/.config/nvim/vim-plug/plugins.vim"
+    ;;
+  vim:startify)
+    file="$HOME/.config/nvim/plug-config/start-screen.vim"
+    ;;
+  vim:coc-setting)
+    file="$HOME/.config/nvim/coc-settings.json"
+    ;;
+  picom)
+    file="$HOME/.config/picom.conf"
+    ;;
+  bookmark-firefox)
+    file="$HOME/.scripts/dmenu/search/library.txt"
+    ;;
+  qutebrowser)
+    file="$HOME/.config/qutebrowser/config.py"
+    ;;
+  quit)
+    file="null-file"
+    ;;
+  *)
+    file="null-file"
+    ;;
+esac
+
+if [[ $file != "null-file" ]]; then
+  alacritty -e nvim $file
+fi

@@ -1,0 +1,15 @@
+#!/bin/sh
+
+promptedText="Calc: "
+
+calcPrompt() {
+  userInput=$(echo "quit" | dmenu -p "$promptedText")
+  if [[ $userInput != '' && $userInput != "quit" ]]; then
+    promptedText=$(~/Desktop/progs/projets-haskell/calc/calc $(echo $userInput))
+  fi
+}
+
+calcPrompt
+while [[ $userInput != '' && $userInput != "quit" ]]; do
+  calcPrompt
+done
