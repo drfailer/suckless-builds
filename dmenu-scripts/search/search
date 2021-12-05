@@ -1,13 +1,7 @@
 #!/bin/bash
 
 research=$(cut -d '|' -f1 $HOME/.scripts/dmenu/search/library.txt | dmenu -l 20 -p 'search: ')
-
-if [[ $research =~ ^q:.*$ ]]; then
-  browser="qutebrowser"
-  research=$(echo $research | sed -e 's/^q://g')
-else
-  browser="firefox"
-fi
+browser="firefox"
 
 if [[ $(grep "^$research|" $HOME/.scripts/dmenu/search/library.txt | wc -l) != 0 ]]; then
   if [[ ! $research =~ ^quit.*$ && $research != '' && $research != "localhost" ]]; then

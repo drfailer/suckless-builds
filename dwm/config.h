@@ -85,8 +85,11 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn",
 	dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf",
 	col_gray4, NULL };
+/* applications */
 static const char *termcmd[] = { "st", NULL };
-static const char *ranger[] = { "st -e ranger", NULL };
+static const char *mailcmd[] = { "st", "-e", "neomutt", NULL };
+static const char *ranger[] = { "st", "-e", "ranger", NULL };
+/* my dmenu scripts */
 static const char *search[] = {
 	"/home/drfailer/.config/suckless-builds/dmenu-scripts/search/search", NULL };
 static const char *sound[] = {
@@ -97,6 +100,7 @@ static const char *enote[] = {
 	"/home/drfailer/.config/suckless-builds/dmenu-scripts/notes/edit-notes", NULL };
 static const char *rnote[] = {
 	"/home/drfailer/.config/suckless-builds/dmenu-scripts/notes/read-note", NULL };
+static const char *passmenu[] = { "passmenu", NULL };
 
 /*****************************************************************************/
 /* Keyboard:                                                                 */
@@ -114,12 +118,14 @@ static Key keys[] = {
 	/***************************************************************************/
  	{ MODKEY,            -1,       XK_j,      focusstack,            {.i = +1 } },
  	{ MODKEY,            -1,       XK_k,      focusstack,            {.i = -1 } },
+ 	{ MODKEY|ShiftMask,  -1,       XK_j,      movestack,            {.i = +1 } },
+ 	{ MODKEY|ShiftMask,  -1,       XK_k,      movestack,            {.i = -1 } },
  	{ MODKEY,            -1,       XK_i,      incnmaster,            {.i = +1 } },
  	{ MODKEY,            -1,       XK_d,      incnmaster,            {.i = -1 } },
  	{ MODKEY,            -1,       XK_h,      setmfact,              {.f = -0.05} },
  	{ MODKEY,            -1,       XK_l,      setmfact,              {.f = +0.05} },
- 	{ MODKEY|ShiftMask,  -1,       XK_k,      setsmfact,             {.f = +0.05} },
- 	{ MODKEY|ShiftMask,  -1,       XK_j,      setsmfact,             {.f = -0.05} },
+ 	{ MODKEY|ShiftMask,  -1,       XK_h,      setsmfact,             {.f = +0.05} },
+ 	{ MODKEY|ShiftMask,  -1,       XK_l,      setsmfact,             {.f = -0.05} },
  	{ MODKEY,            -1,       XK_Return, zoom,                  {0} },
  	{ MODKEY,            -1,       XK_Tab,    view,                  {0} },
  	{ MODKEY|ShiftMask,  -1,       XK_c,      killclient,            {0} },
@@ -166,7 +172,8 @@ static Key keys[] = {
 	/***************************************************************************/
  	{ MODKEY,            XK_a,     XK_d,       spawn,         {.v = dmenucmd } },
  	{ MODKEY,            XK_a,     XK_t,       spawn,         {.v = termcmd  } },
- 	{ MODKEY,              -1,     XK_d,       spawn,         {.v = ranger   } },
+ 	{ MODKEY,            XK_a,     XK_m,       spawn,         {.v = mailcmd  } },
+ 	{ MODKEY|ShiftMask,    -1,     XK_d,       spawn,         {.v = ranger   } },
 	/***************************************************************************/
 	/* dmenu scripts:                                                          */
 	/***************************************************************************/
@@ -174,6 +181,7 @@ static Key keys[] = {
  	{ MODKEY|ShiftMask,  XK_n,     XK_r,      spawn,          {.v = rnote } },
  	{ MODKEY|ShiftMask,  XK_p,     XK_s,      spawn,          {.v = sound } },
  	{ MODKEY|ShiftMask,  XK_p,     XK_b,      spawn,          {.v = bright } },
+ 	{ MODKEY|ShiftMask,  XK_p,     XK_p,      spawn,          {.v = passmenu } },
  	{ MODKEY,              -1,     XK_f,      spawn,          {.v = search } },
 };
 
