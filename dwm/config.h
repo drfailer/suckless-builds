@@ -91,15 +91,15 @@ static const char *mailcmd[] = { "st", "-e", "neomutt", NULL };
 static const char *ranger[] = { "st", "-e", "ranger", NULL };
 /* my dmenu scripts */
 static const char *search[] = {
-	"/home/drfailer/.config/suckless-builds/dmenu-scripts/search/search", NULL };
+	"/home/drfailer/.config/suckless-builds/dmenu-scripts/search", NULL };
 static const char *sound[] = {
-	"/home/drfailer/.config/suckless-builds/dmenu-scripts/sound/sound", NULL };
+	"/home/drfailer/.config/suckless-builds/dmenu-scripts/sound", NULL };
 static const char *bright[] = {
-	"/home/drfailer/.config/suckless-builds/dmenu-scripts/brightness/brightness", NULL };
+	"/home/drfailer/.config/suckless-builds/dmenu-scripts/brightness", NULL };
 static const char *enote[] = {
-	"/home/drfailer/.config/suckless-builds/dmenu-scripts/notes/edit-notes", NULL };
+	"/home/drfailer/.config/suckless-builds/dmenu-scripts/edit-notes", NULL };
 static const char *rnote[] = {
-	"/home/drfailer/.config/suckless-builds/dmenu-scripts/notes/read-note", NULL };
+	"/home/drfailer/.config/suckless-builds/dmenu-scripts/read-note", NULL };
 static const char *passmenu[] = { "passmenu", NULL };
 
 /*****************************************************************************/

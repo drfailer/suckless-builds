@@ -13,5 +13,5 @@ declare -a choices=("1.0"
 userChoice=$(echo "$(printf '%s\n' "${choices[@]}")" | dmenu -l 20 -p 'Chose a brithness: ')
 if [ ! -z $userChoice ]
 then
-  xrandr -output eDP1 --brithness $userChoice
+  xrandr --output eDP1 --brightness $userChoice
 fi

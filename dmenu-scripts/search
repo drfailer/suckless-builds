@@ -1,0 +1,18 @@
+#!/bin/bash
+
+PATH_TO_LIB="$HOME/.local/share/library.txt"
+research=$(cut -d '|' -f1 $PATH_TO_LIB | dmenu -l 20 -p 'search: ')
+MY_BROWSER="firefox"
+
+if [[ $(grep "^$research|" $PATH_TO_LIB | wc -l) != 0 ]]; then
+  if [[ ! $research =~ ^quit.*$ && $research != '' && $research != "localhost" ]]; then
+    url=$(grep "^$research" $PATH_TO_LIB | cut -d '|' -f2)
+  $MY_BROWSER $url &
+  elif [[ $research == "localhost" ]]; then
+    url="localhost:$(dmenu -l 20 -p 'Chose a port: ')"
+    $MY_BROWSER $url &
+  fi
+elif [[ $research != '' ]]; then
+    url="https://www.google.com/search?q=$(echo "${research}" | tr ' ' '+')"
+    $MY_BROWSER $url &
+fi
