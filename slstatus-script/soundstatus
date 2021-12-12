@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# awk -F"[][]" '/dB/ { print $2 }' <(amixer sget Master)
+awk -F"[][]" '/dB/ { print $2 }' <(amixer -c 2 sget PCM) | head -n 1

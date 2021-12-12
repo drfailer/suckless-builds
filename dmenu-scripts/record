@@ -14,7 +14,10 @@ declare -a outputName=("out"
                        )
 
 format=$(echo "$(printf '%s\n' "${formatChoices[@]}")" | dmenu -l 20 -p 'video format: ')
-name=$(echo "$(printf '%s\n' "${outputName[@]}")" | dmenu -l 20 -p 'output name: ')
+if [ ! -z $format ]
+then
+  name=$(echo "$(printf '%s\n' "${outputName[@]}")" | dmenu -l 20 -p 'output name: ')
+fi
 
 
 case $format in

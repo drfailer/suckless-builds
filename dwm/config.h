@@ -10,7 +10,7 @@ static const unsigned int minwsz    = 20;       /* Minimal heigt of a client for
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[] = {
-	"ProFont for Powerline:size=12",
+	"ProFont for Powerline:size=10",
 	"JoyPixels:pixelsize=10:antialias=true:autohint=true"
 };
 static const char dmenufont[]       = "ProFont for Powerline:size=12";
@@ -44,7 +44,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
-	{ "Discord",  NULL,       NULL,       0,            0,            0 },
+	{ "Discord",  NULL,       NULL,       1,            0,            0 },
 };
 
 /*****************************************************************************/
@@ -97,9 +97,13 @@ static const char *sound[] = {
 static const char *bright[] = {
 	"/home/drfailer/.config/suckless-builds/dmenu-scripts/brightness", NULL };
 static const char *enote[] = {
-	"/home/drfailer/.config/suckless-builds/dmenu-scripts/edit-notes", NULL };
+	"/home/drfailer/.config/suckless-builds/dmenu-scripts/note", "-e", NULL };
 static const char *rnote[] = {
-	"/home/drfailer/.config/suckless-builds/dmenu-scripts/read-note", NULL };
+	"/home/drfailer/.config/suckless-builds/dmenu-scripts/note", "-r", NULL };
+static const char *emoji[] = {
+	"/home/drfailer/.config/suckless-builds/dmenu-scripts/emoji", NULL };
+static const char *dmdotf[] = {
+	"/home/drfailer/.config/suckless-builds/dmenu-scripts/editconf", NULL };
 static const char *passmenu[] = { "passmenu", NULL };
 
 /*****************************************************************************/
@@ -182,6 +186,8 @@ static Key keys[] = {
  	{ MODKEY|ShiftMask,  XK_p,     XK_s,      spawn,          {.v = sound } },
  	{ MODKEY|ShiftMask,  XK_p,     XK_b,      spawn,          {.v = bright } },
  	{ MODKEY|ShiftMask,  XK_p,     XK_p,      spawn,          {.v = passmenu } },
+ 	{ MODKEY|ShiftMask,  XK_p,     XK_e,      spawn,          {.v = emoji } },
+ 	{ MODKEY|ShiftMask,  XK_p,     XK_f,      spawn,          {.v = dmdotf } },
  	{ MODKEY,              -1,     XK_f,      spawn,          {.v = search } },
 };
 

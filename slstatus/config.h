@@ -67,8 +67,10 @@ static const struct arg args[] = {
 	/* function format          argument */
 	// { battery_perc, " 🔌 %s % |", "BAT0" },
 	// { wifi_perc, "  %s % |",     "wlp5s0" },
+	{ run_command, " 🔉 %s |",        "/home/drfailer/.config/suckless-builds/slstatus-script/soundstatus" },
+	{ run_command, " 📋 %s |",        "/home/drfailer/.scripts/utils/agenda --report" },
 	{ disk_free, " 🗄️ %s % |",       "/" },
 	{ cpu_perc, " 🖥️ %s % |",        NULL},
-	{ ram_perc, " 💾 %s |",          NULL},
+	{ ram_perc, " 💾 %s |",         NULL},
 	{ datetime, " 📅 %s ",       "%b %a %d %T" },
 };

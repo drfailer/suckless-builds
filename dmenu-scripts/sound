@@ -1,6 +1,7 @@
 #!/bin/bash
 declare -a choices=("100%"
                     "75%"
+                    "60%"
                     "50%"
                     "25%"
                     "mute"
@@ -10,18 +11,46 @@ declare -a choices=("100%"
 
 userChoice=$(echo "$(printf '%s\n' "${choices[@]}")" | dmenu -l 20 -p 'sound: ')
 
+setsoundPC() {
+  case "$1" in
+    "")
+      ;;
+    "mute")
+      amixer -c 2 sset PCM mute
+      ;;
+    "unmute")
+      amixer  -c 2 sset PCM unmute
+      ;;
+    *)
+      amixer -c 2 sset PCM $1
+      amixer -c 2 sset PCM unmute
+      ;;
+  esac
+}
 
-case "$userChoice" in
-  "")
-    ;;
-  "mute")
-    amixer -c 2 sset PCM mute
-    ;;
-  "unmute")
-    amixer  -c 2 sset PCM unmute
-    ;;
-  *)
-    amixer -c 2 sset PCM $userChoice
-    amixer -c 2 sset PCM unmute
-    ;;
-esac
+setsoundLaptop() {
+  case "$userChoice" in
+    "")
+      ;;
+    "mute")
+      amixer -c 0 sset Master mute
+      ;;
+    "unmute")
+      amixer  -c 0 sset Master unmute
+      amixer -c 0 sset Speaker unmute
+      ;;
+    *)
+      amixer -c 0 sset Master $userChoice
+      amixer -c 0 sset Master unmute
+      amixer -c 0 sset Speaker unmute
+      ;;
+  esac
+}
+
+# if [ $WHICH_COMPUTER -eq PC ]
+# then
+#   setsoundPC $userChoice
+# else
+#   setsoundLaptop $userChoice
+# fi
+setsoundPC $userChoice
