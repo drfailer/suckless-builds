@@ -1,0 +1,4 @@
+#!/bin/bash
+
+page=$(ls /usr/share/man/**/*.gz | awk -F/ '{ print $NF }' | sed 's/\..*$//g' | dmenu)
+st -e man $page

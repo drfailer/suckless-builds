@@ -125,7 +125,7 @@ editNote() {
     choseTopic  "$HOME/.local/share/notes/src/$tag"
   fi
   if [[ $file != "" && $file != "remove-mode" ]]; then
-    alacritty -e nvim -c % "$file" && compile "$file"
+    st -e nvim -c % "$file" && compile "$file"
   fi
 }
 

@@ -1,4 +1,14 @@
 #!/bin/sh
 
+# Command for laptop:
 # awk -F"[][]" '/dB/ { print $2 }' <(amixer sget Master)
-awk -F"[][]" '/dB/ { print $2 }' <(amixer -c 2 sget PCM) | head -n 1
+
+
+soundStatus=$(awk -F"[][]" '/dB/ { print $6 }' <(amixer -c 2 sget PCM) | head -n 1)
+
+if [ $soundStatus = "on" ]
+then
+  echo "🔉 $(awk -F"[][]" '/dB/ { print $2 }' <(amixer -c 2 sget PCM) | head -n 1)"
+else
+  echo "🔇 off"
+fi

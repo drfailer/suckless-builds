@@ -20,7 +20,7 @@ static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#bfbaba";
 // static const char col_cyan[]        = "#306edc";
 // static const char col_cyan[]        = "#003B6F";
-static const char col_cyan[]        = "#006699";
+static const char col_cyan[]        = "#005588";
 static const char col_border[]      = "#458588";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -102,6 +102,8 @@ static const char *rnote[] = {
 	"/home/drfailer/.config/suckless-builds/dmenu-scripts/note", "-r", NULL };
 static const char *emoji[] = {
 	"/home/drfailer/.config/suckless-builds/dmenu-scripts/emoji", NULL };
+static const char *manmenu[] = {
+	"/home/drfailer/.config/suckless-builds/dmenu-scripts/manmenu", NULL };
 static const char *dmdotf[] = {
 	"/home/drfailer/.config/suckless-builds/dmenu-scripts/editconf", NULL };
 static const char *passmenu[] = { "passmenu", NULL };
@@ -187,6 +189,7 @@ static Key keys[] = {
  	{ MODKEY|ShiftMask,  XK_p,     XK_b,      spawn,          {.v = bright } },
  	{ MODKEY|ShiftMask,  XK_p,     XK_p,      spawn,          {.v = passmenu } },
  	{ MODKEY|ShiftMask,  XK_p,     XK_e,      spawn,          {.v = emoji } },
+ 	{ MODKEY|ShiftMask,  XK_p,     XK_m,      spawn,          {.v = manmenu } },
  	{ MODKEY|ShiftMask,  XK_p,     XK_f,      spawn,          {.v = dmdotf } },
  	{ MODKEY,              -1,     XK_f,      spawn,          {.v = search } },
 };
