@@ -60,8 +60,7 @@ static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
 	{ "[M]",      monocle },
-	{ "|M|",      centeredmaster },
-	{ ">M>",      centeredfloatingmaster },
+	{ "###",      horizgrid },
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 };
 
@@ -140,9 +139,8 @@ static Key keys[] = {
 	/***************************************************************************/
 	{ MODKEY|ShiftMask,  XK_l,     XK_t,      setlayout,      {.v = &layouts[0]} },
  	{ MODKEY|ShiftMask,  XK_l,     XK_m,      setlayout,      {.v = &layouts[1]} },
- 	{ MODKEY|ShiftMask,  XK_l,     XK_u,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY|ShiftMask,  XK_l,     XK_o,      setlayout,      {.v = &layouts[3]} },
-	{ MODKEY|ShiftMask,  XK_l,     XK_f,      setlayout,      {.v = &layouts[4]} },
+	{ MODKEY|ShiftMask,  XK_l,     XK_h,      setlayout,      {.v = &layouts[2]} },
+ 	{ MODKEY|ShiftMask,  XK_l,     XK_u,      setlayout,      {.v = &layouts[3]} },
  	{ MODKEY,              -1,     XK_space,  setlayout,      {0} },
  	{ MODKEY|ShiftMask,    -1,     XK_space,  togglefloating, {0} },
 	/***************************************************************************/
@@ -157,7 +155,7 @@ static Key keys[] = {
 	/***************************************************************************/
 	/* Gaps:                                                                   */
 	/***************************************************************************/
- 	{ MODKEY,              -1,     XK_minus,     setgaps,           {.i = -1 } },
+ 	{ MODKEY,              -1,     XK_parenright,setgaps,           {.i = -1 } },
  	{ MODKEY,              -1,     XK_equal,     setgaps,           {.i = +1 } },
  	{ MODKEY|ShiftMask,    -1,     XK_equal,     setgaps,           {.i = 0  } },
 	/***************************************************************************/
