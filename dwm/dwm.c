@@ -2310,12 +2310,12 @@ horizgrid(Monitor *m) {
 		resize(c,
 				m->wx + m->gappx,
 				m->wy + m->gappx,
-				w - (2*c->bw) - 2*m->gappx,
+				w - (2*c->bw) - m->gappx,
 				m->wh - (2*c->bw) - 2*m->gappx,
 				False);
 		c = nexttiled(c->next);
 		resize(c,
-				m->wx + w,
+				m->wx + w + m->gappx,
 				m->wy + m->gappx,
 				w - (2*c->bw) - 2*m->gappx,
 				m->wh - (2*c->bw) - 2*m->gappx,
@@ -2337,7 +2337,7 @@ horizgrid(Monitor *m) {
 				resize(c,
 						m->wx + i * m->ww / ntop,
 						m->wy + m->gappx,
-						m->ww / ntop - (2*c->bw) - 2*m->gappx,
+						m->ww / ntop - (2*c->bw) - m->gappx,
 						m->wh / 2 - (2*c->bw) - 2*m->gappx,
 						False);
 			else if (i == ntop)
