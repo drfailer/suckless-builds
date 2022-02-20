@@ -2,7 +2,7 @@
 
 PATH_TO_LIB="$HOME/.local/share/library.txt"
 research=$(cut -d '|' -f1 $PATH_TO_LIB | dmenu -l 20 -p 'search: ')
-MY_BROWSER="firefox"
+MY_BROWSER="brave"
 
 if [[ $(grep "^$research|" $PATH_TO_LIB | wc -l) != 0 ]]; then
   if [[ ! $research =~ ^quit.*$ && $research != '' && $research != "localhost" ]]; then
