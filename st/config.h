@@ -6,6 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 static char *font = "ProFont for Powerline:pixelsize=15:antialias=true:autohint=true";
+// static char *font = "Source Code Pro:pixelsize=15:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
@@ -91,32 +92,54 @@ char *termname = "st-256color";
  *
  *	stty tabs
  */
-unsigned int tabspaces = 8;
+unsigned int tabspaces = 4;
 
 /* bg opacity */
-float alpha = 0.9;
+float alpha = 1.0;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
+  /* ONE: */
 	/* 8 normal colors */
-	"#1d2021",
-	"#cc241d",
-	"#98971a",
-	"#d79921",
-	"#458588",
-	"#b16286",
-	"#689d6a",
-	"#a89984",
+  "#282C34",
+  "#BF616A",
+  "#A3BE8C",
+  "#EBCB8B",
+  "#81A1C1",
+  "#C678DD",
+  "#51AFEF",
+  "#ABB2BF",
 
 	/* 8 bright colors */
-	"#928374",
-	"#fb4934",
-	"#b8bb26",
-	"#fabd2f",
-	"#83a598",
-	"#d3a598",
-	"#8ec07c",
-	"#ebdbb2",
+  "#5c6370",
+  "#e06c75",
+  "#98c379",
+  "#d19a66",
+  "#61afef",
+  "#c678dd",
+  "#56b6c2",
+  "#ECEFF4",
+
+  /* GRUVBOX: */
+	/* /1* 8 normal colors *1/ */
+	/* "#1d2021", */
+	/* "#cc241d", */
+	/* "#98971a", */
+	/* "#d79921", */
+	/* "#458588", */
+	/* "#b16286", */
+	/* "#689d6a", */
+	/* "#a89984", */
+
+	/* /1* 8 bright colors *1/ */
+	/* "#928374", */
+	/* "#fb4934", */
+	/* "#b8bb26", */
+	/* "#fabd2f", */
+	/* "#83a598", */
+	/* "#d3a598", */
+	/* "#8ec07c", */
+	/* "#ebdbb2", */
 
 	[255] = 0,
 

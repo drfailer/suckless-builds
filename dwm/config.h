@@ -14,11 +14,25 @@ static const char *fonts[] = {
 	"JoyPixels:pixelsize=10:antialias=true:autohint=true"
 };
 static const char dmenufont[]    = "ProFont for Powerline:size=12";
-static const char col_bg[]       = "#1d2021";
-static const char col_norm_fg[]  = "#bbbbbb";
-static const char col_sel_fg[]   = "#bfbaba";
-static const char col_cyan[]     = "#005588";
+static const char col_bg[]       = "#1f2329";
+static const char col_norm_fg[]  = "#ABB2BF";
+static const char col_sel_fg[]   = "#61afef";
+static const char col_cyan[]     = "#282c34";
 static const char col_border[]   = "#458588";
+static const char dm_bg[]        = "#1f2329";
+static const char dm_nf[]        = "#ABB2BF";
+static const char dm_sb[]        = "#282c34";
+static const char dm_sf[]        = "#C678DD";
+/* my default theme */
+/* static const char col_bg[]       = "#1d2021"; */
+/* static const char col_norm_fg[]  = "#bbbbbb"; */
+/* static const char col_sel_fg[]   = "#bfbaba"; */
+/* static const char col_cyan[]     = "#005588"; */
+/* static const char col_border[]   = "#458588"; */
+/* static const char dm_bg[]        = "#1d2021"; */
+/* static const char dm_nf[]        = "#bbbbbb"; */
+/* static const char dm_sb[]        = "#005588"; */
+/* static const char dm_sf[]        = "#bfbaba"; */
 static const char *colors[][3]   = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_norm_fg, col_bg, col_bg  },
@@ -79,8 +93,8 @@ static const Layout layouts[] = {
 /*****************************************************************************/
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn",
-	dmenufont, "-nb", col_bg, "-nf", col_norm_fg, "-sb", col_cyan, "-sf",
-	col_sel_fg, NULL };
+	dmenufont, "-nb", dm_bg, "-nf", dm_nf, "-sb", dm_sb, "-sf",
+	dm_sf, NULL };
 /* applications */
 static const char *termcmd[] = { "st", NULL };
 static const char *mailcmd[] = { "st", "-e", "neomutt", NULL };
@@ -131,6 +145,17 @@ static Key keys[] = {
  	{ MODKEY,            -1,       XK_Return, zoom,                  {0} },
  	{ MODKEY,            -1,       XK_Tab,    view,                  {0} },
  	{ MODKEY|ShiftMask,  -1,       XK_c,      killclient,            {0} },
+	/***************************************************************************/
+	/* Flaot windows manipulations:                                            */
+	/***************************************************************************/
+ 	{ MODKEY|ControlMask,           -1, XK_j,     moveresize,     {.v = "0x 25y 0w 0h" } },
+ 	{ MODKEY|ControlMask,           -1, XK_k,     moveresize,     {.v = "0x -25y 0w 0h" } },
+ 	{ MODKEY|ControlMask,           -1, XK_l,     moveresize,     {.v = "25x 0y 0w 0h" } },
+ 	{ MODKEY|ControlMask,           -1, XK_h,     moveresize,     {.v = "-25x 0y 0w 0h" } },
+ 	{ MODKEY|ControlMask|ShiftMask, -1, XK_j,     moveresize,     {.v = "0x 0y 0w 25h" } },
+ 	{ MODKEY|ControlMask|ShiftMask, -1, XK_k,     moveresize,     {.v = "0x 0y 0w -25h" } },
+ 	{ MODKEY|ControlMask|ShiftMask, -1, XK_l,     moveresize,     {.v = "0x 0y 25w 0h" } },
+ 	{ MODKEY|ControlMask|ShiftMask, -1, XK_h,     moveresize,     {.v = "0x 0y -25w 0h" } },
 	/***************************************************************************/
 	/* Layouts:                                                                */
 	/***************************************************************************/

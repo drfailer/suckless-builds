@@ -9,8 +9,8 @@ Patchs
 - [fullgaps](https://dwm.suckless.org/patches/fullgaps/)
 - [stackmfact](https://dwm.suckless.org/patches/stackmfact/)
 - [movestack](https://dwm.suckless.org/patches/movestack/)
+- [moveresize](https://dwm.suckless.org/patches/moveresize/)
 - [horizgrid](https://dwm.suckless.org/patches/horizgrid/)
-- [centeredmaster](https://dwm.suckless.org/patches/centeredmaster/)
 
 
 Dependancies
