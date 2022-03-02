@@ -71,7 +71,8 @@ static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
 	{ "[M]",      monocle },
-	{ "###",      horizgrid },
+	{ "TTT",      bstack },
+	{ "===",      bstackhoriz },
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 };
 
@@ -140,31 +141,32 @@ static Key keys[] = {
  	{ MODKEY,            -1,       XK_d,      incnmaster,            {.i = -1 } },
  	{ MODKEY,            -1,       XK_h,      setmfact,              {.f = -0.05} },
  	{ MODKEY,            -1,       XK_l,      setmfact,              {.f = +0.05} },
- 	{ MODKEY|ShiftMask,  -1,       XK_h,      setsmfact,             {.f = +0.05} },
- 	{ MODKEY|ShiftMask,  -1,       XK_l,      setsmfact,             {.f = -0.05} },
+ 	{ MODKEY|ShiftMask,  -1,       XK_h,      setcfact,             {.f = +0.05} },
+ 	{ MODKEY|ShiftMask,  -1,       XK_l,      setcfact,             {.f = -0.05} },
  	{ MODKEY,            -1,       XK_Return, zoom,                  {0} },
  	{ MODKEY,            -1,       XK_Tab,    view,                  {0} },
  	{ MODKEY|ShiftMask,  -1,       XK_c,      killclient,            {0} },
 	/***************************************************************************/
 	/* Flaot windows manipulations:                                            */
 	/***************************************************************************/
- 	{ MODKEY|ControlMask,           -1, XK_j,     moveresize,     {.v = "0x 25y 0w 0h" } },
- 	{ MODKEY|ControlMask,           -1, XK_k,     moveresize,     {.v = "0x -25y 0w 0h" } },
- 	{ MODKEY|ControlMask,           -1, XK_l,     moveresize,     {.v = "25x 0y 0w 0h" } },
- 	{ MODKEY|ControlMask,           -1, XK_h,     moveresize,     {.v = "-25x 0y 0w 0h" } },
- 	{ MODKEY|ControlMask|ShiftMask, -1, XK_j,     moveresize,     {.v = "0x 0y 0w 25h" } },
- 	{ MODKEY|ControlMask|ShiftMask, -1, XK_k,     moveresize,     {.v = "0x 0y 0w -25h" } },
- 	{ MODKEY|ControlMask|ShiftMask, -1, XK_l,     moveresize,     {.v = "0x 0y 25w 0h" } },
- 	{ MODKEY|ControlMask|ShiftMask, -1, XK_h,     moveresize,     {.v = "0x 0y -25w 0h" } },
+ 	{ MODKEY|ControlMask,           -1, XK_j,     moveresize,     {.v = "0x 50y 0w 0h" } },
+ 	{ MODKEY|ControlMask,           -1, XK_k,     moveresize,     {.v = "0x -50y 0w 0h" } },
+ 	{ MODKEY|ControlMask,           -1, XK_l,     moveresize,     {.v = "50x 0y 0w 0h" } },
+ 	{ MODKEY|ControlMask,           -1, XK_h,     moveresize,     {.v = "-50x 0y 0w 0h" } },
+ 	{ MODKEY|ControlMask|ShiftMask, -1, XK_j,     moveresize,     {.v = "0x 0y 0w 50h" } },
+ 	{ MODKEY|ControlMask|ShiftMask, -1, XK_k,     moveresize,     {.v = "0x 0y 0w -50h" } },
+ 	{ MODKEY|ControlMask|ShiftMask, -1, XK_l,     moveresize,     {.v = "0x 0y 50w 0h" } },
+ 	{ MODKEY|ControlMask|ShiftMask, -1, XK_h,     moveresize,     {.v = "0x 0y -50w 0h" } },
 	/***************************************************************************/
 	/* Layouts:                                                                */
 	/***************************************************************************/
-	{ MODKEY|ShiftMask,  XK_l,     XK_t,      setlayout,      {.v = &layouts[0]} },
- 	{ MODKEY|ShiftMask,  XK_l,     XK_m,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY|ShiftMask,  XK_l,     XK_h,      setlayout,      {.v = &layouts[2]} },
- 	{ MODKEY|ShiftMask,  XK_l,     XK_u,      setlayout,      {.v = &layouts[3]} },
- 	{ MODKEY,              -1,     XK_space,  setlayout,      {0} },
- 	{ MODKEY|ShiftMask,    -1,     XK_space,  togglefloating, {0} },
+	{ MODKEY|ShiftMask,  XK_s,     XK_ampersand,   setlayout,      {.v = &layouts[0]} },
+ 	{ MODKEY|ShiftMask,  XK_s,     XK_eacute,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY|ShiftMask,  XK_s,     XK_quotedbl,    setlayout,      {.v = &layouts[2]} },
+ 	{ MODKEY|ShiftMask,  XK_s,     XK_apostrophe,  setlayout,      {.v = &layouts[3]} },
+ 	{ MODKEY|ShiftMask,  XK_s,     XK_parenleft,   setlayout,      {.v = &layouts[4]} },
+ 	{ MODKEY,              -1,     XK_space,       setlayout,      {0} },
+ 	{ MODKEY|ShiftMask,    -1,     XK_space,       togglefloating, {0} },
 	/***************************************************************************/
 	/* Screen Manipulation:                                                    */
 	/***************************************************************************/
@@ -177,9 +179,9 @@ static Key keys[] = {
 	/***************************************************************************/
 	/* Gaps:                                                                   */
 	/***************************************************************************/
- 	{ MODKEY,              -1,     XK_parenright,setgaps,           {.i = -1 } },
- 	{ MODKEY,              -1,     XK_equal,     setgaps,           {.i = +1 } },
- 	{ MODKEY|ShiftMask,    -1,     XK_equal,     setgaps,           {.i = 0  } },
+ 	{ MODKEY,              -1,     XK_parenright, setgaps,          {.i = -1 } },
+ 	{ MODKEY,              -1,     XK_equal,      setgaps,          {.i = +1 } },
+ 	{ MODKEY|ShiftMask,    -1,     XK_equal,      setgaps,          {.i = 0  } },
 	/***************************************************************************/
 	/* Tags:                                                                   */
 	/***************************************************************************/
