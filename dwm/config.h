@@ -14,6 +14,9 @@ static const char *fonts[] = {
 	"JoyPixels:pixelsize=10:antialias=true:autohint=true"
 };
 static const char dmenufont[]    = "ProFont for Powerline:size=12";
+/*****************************************************************************/
+/*Theme                                                                      */
+/*****************************************************************************/
 static const char col_bg[]       = "#1f2329";
 static const char col_norm_fg[]  = "#ABB2BF";
 static const char col_sel_fg[]   = "#61afef";
@@ -23,16 +26,7 @@ static const char dm_bg[]        = "#1f2329";
 static const char dm_nf[]        = "#ABB2BF";
 static const char dm_sb[]        = "#282c34";
 static const char dm_sf[]        = "#C678DD";
-/* my default theme */
-/* static const char col_bg[]       = "#1d2021"; */
-/* static const char col_norm_fg[]  = "#bbbbbb"; */
-/* static const char col_sel_fg[]   = "#bfbaba"; */
-/* static const char col_cyan[]     = "#005588"; */
-/* static const char col_border[]   = "#458588"; */
-/* static const char dm_bg[]        = "#1d2021"; */
-/* static const char dm_nf[]        = "#bbbbbb"; */
-/* static const char dm_sb[]        = "#005588"; */
-/* static const char dm_sf[]        = "#bfbaba"; */
+/*****************************************************************************/
 static const char *colors[][3]   = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_norm_fg, col_bg, col_bg  },

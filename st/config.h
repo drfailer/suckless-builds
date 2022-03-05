@@ -120,27 +120,6 @@ static const char *colorname[] = {
   "#56b6c2",
   "#ECEFF4",
 
-  /* GRUVBOX: */
-	/* /1* 8 normal colors *1/ */
-	/* "#1d2021", */
-	/* "#cc241d", */
-	/* "#98971a", */
-	/* "#d79921", */
-	/* "#458588", */
-	/* "#b16286", */
-	/* "#689d6a", */
-	/* "#a89984", */
-
-	/* /1* 8 bright colors *1/ */
-	/* "#928374", */
-	/* "#fb4934", */
-	/* "#b8bb26", */
-	/* "#fabd2f", */
-	/* "#83a598", */
-	/* "#d3a598", */
-	/* "#8ec07c", */
-	/* "#ebdbb2", */
-
 	[255] = 0,
 
 	/* more colors can be added after 255 to use with DefaultXX */

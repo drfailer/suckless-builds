@@ -21,3 +21,48 @@ Dependancies
 
 - `ttf-joypixels` (AUR)
 - `libxft-bgra` (colored emoji fix)
+
+Themes
+------
+
+* Gruvbox
+
+```c
+static const char col_bg[]       = "#1d2021";
+static const char col_norm_fg[]  = "#bbbbbb";
+static const char col_sel_fg[]   = "#bfbaba";
+static const char col_cyan[]     = "#005588";
+static const char col_border[]   = "#458588";
+static const char dm_bg[]        = "#1d2021";
+static const char dm_nf[]        = "#bbbbbb";
+static const char dm_sb[]        = "#005588";
+static const char dm_sf[]        = "#bfbaba";
+```
+
+* One
+
+```c
+static const char col_bg[]       = "#1f2329";
+static const char col_norm_fg[]  = "#ABB2BF";
+static const char col_sel_fg[]   = "#61afef";
+static const char col_cyan[]     = "#282c34";
+static const char col_border[]   = "#458588";
+static const char dm_bg[]        = "#1f2329";
+static const char dm_nf[]        = "#ABB2BF";
+static const char dm_sb[]        = "#282c34";
+static const char dm_sf[]        = "#C678DD";
+```
+
+* Black
+
+```c
+static const char col_bg[]       = "#000000";
+static const char col_norm_fg[]  = "#5F5F5F";
+static const char col_sel_fg[]   = "#282828";
+static const char col_cyan[]     = "#005faf";
+static const char col_border[]   = "#0087d7";
+static const char dm_bg[]        = "#000000";
+static const char dm_nf[]        = "#5F5F5F";
+static const char dm_sb[]        = "#262626";
+static const char dm_sf[]        = "#d7af87";
+```
