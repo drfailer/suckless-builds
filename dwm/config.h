@@ -111,6 +111,8 @@ static const char *manmenu[] = {
 	"/home/drfailer/.config/suckless-builds/dmenu-scripts/manmenu", NULL };
 static const char *dmdotf[] = {
 	"/home/drfailer/.config/suckless-builds/dmenu-scripts/editconf", NULL };
+static const char *dmcalc[] = {
+	"/home/drfailer/.config/suckless-builds/dmenu-scripts/calculator", NULL };
 static const char *passmenu[] = { "passmenu", NULL };
 
 /*****************************************************************************/
@@ -207,6 +209,7 @@ static Key keys[] = {
  	{ MODKEY|ShiftMask,  XK_p,     XK_e,      spawn,          {.v = emoji } },
  	{ MODKEY|ShiftMask,  XK_p,     XK_m,      spawn,          {.v = manmenu } },
  	{ MODKEY|ShiftMask,  XK_p,     XK_f,      spawn,          {.v = dmdotf } },
+ 	{ MODKEY|ShiftMask,  XK_p,     XK_c,      spawn,          {.v = dmcalc } },
  	{ MODKEY,              -1,     XK_f,      spawn,          {.v = search } },
 };
 

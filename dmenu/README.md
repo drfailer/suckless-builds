@@ -26,7 +26,7 @@ Themes
 
 ```c
   /* DARK: */
-	[SchemeNorm] = { "#5F5F5F", "#000000" },
-	[SchemeSel] = { "#d7af87", "#262626" },
+	[SchemeNorm] = { "#606360", "#000000" },
+	[SchemeSel] = { "#E2995C", "#2c2F33" },
 	[SchemeOut] = { "#000000", "#00ffff" },
 ```

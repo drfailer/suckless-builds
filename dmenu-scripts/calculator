@@ -1,12 +1,11 @@
 #!/bin/bash
 
 promptedText="Calc: "
-CALC_APP="$HOME/.scripts/apps/src/haskell-calc/calc"
 
 calcPrompt() {
   userInput=$(echo "quit" | dmenu -p "$promptedText")
   if [[ $userInput != '' && $userInput != "quit" ]]; then
-    promptedText=$( $(echo $userInput))
+    promptedText=$(calc $(echo $userInput))
   fi
 }
 

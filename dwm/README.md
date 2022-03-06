@@ -57,12 +57,12 @@ static const char dm_sf[]        = "#C678DD";
 
 ```c
 static const char col_bg[]       = "#000000";
-static const char col_norm_fg[]  = "#5F5F5F";
-static const char col_sel_fg[]   = "#282828";
-static const char col_cyan[]     = "#005faf";
-static const char col_border[]   = "#0087d7";
+static const char col_norm_fg[]  = "#606360";
+static const char col_sel_fg[]   = "#E2995C";
+static const char col_cyan[]     = "#000000";
+static const char col_border[]   = "#66899d";
 static const char dm_bg[]        = "#000000";
-static const char dm_nf[]        = "#5F5F5F";
-static const char dm_sb[]        = "#262626";
-static const char dm_sf[]        = "#d7af87";
+static const char dm_nf[]        = "#606360";
+static const char dm_sb[]        = "#2c2F33";
+static const char dm_sf[]        = "#E2995C";
 ```
