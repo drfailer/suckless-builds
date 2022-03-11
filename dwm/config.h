@@ -168,8 +168,8 @@ static Key keys[] = {
 	/***************************************************************************/
  	{ MODKEY,              -1,     XK_agrave,        view,         {.ui = ~0 } },
  	{ MODKEY|ShiftMask,    -1,     XK_agrave,         tag,         {.ui = ~0 } },
- 	{ MODKEY,              -1,     XK_comma,     focusmon,          {.i = -1 } },
- 	{ MODKEY,              -1,     XK_semicolon, focusmon,          {.i = +1 } },
+ 	{ MODKEY,              -1,     XK_comma,     focusmon,          {.i = +1 } },
+ 	{ MODKEY,              -1,     XK_semicolon, focusmon,          {.i = -1 } },
  	{ MODKEY|ShiftMask,    -1,     XK_comma,       tagmon,          {.i = -1 } },
  	{ MODKEY|ShiftMask,    -1,     XK_semicolon,   tagmon,          {.i = +1 } },
 	/***************************************************************************/
