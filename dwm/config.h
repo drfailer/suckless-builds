@@ -17,15 +17,15 @@ static const char dmenufont[]    = "ProFont for Powerline:size=12";
 /*****************************************************************************/
 /*Theme                                                                      */
 /*****************************************************************************/
-static const char col_bg[]       = "#1f2329";
-static const char col_norm_fg[]  = "#ABB2BF";
-static const char col_sel_fg[]   = "#61afef";
-static const char col_cyan[]     = "#282c34";
-static const char col_border[]   = "#458588";
-static const char dm_bg[]        = "#1f2329";
-static const char dm_nf[]        = "#ABB2BF";
-static const char dm_sb[]        = "#282c34";
-static const char dm_sf[]        = "#C678DD";
+static const char col_bg[]       = "#000000";
+static const char col_norm_fg[]  = "#606360";
+static const char col_sel_fg[]   = "#66899d";
+static const char col_cyan[]     = "#000000";
+static const char col_border[]   = "#66899d";
+static const char dm_bg[]        = "#000000";
+static const char dm_nf[]        = "#606360";
+static const char dm_sb[]        = "#000000";
+static const char dm_sf[]        = "#66899d";
 /*****************************************************************************/
 static const char *colors[][3]   = {
 	/*               fg         bg         border   */
@@ -94,6 +94,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn",
 static const char *termcmd[] = { "st", NULL };
 static const char *mailcmd[] = { "st", "-e", "neomutt", NULL };
 static const char *ranger[] = { "st", "-e", "ranger", NULL };
+static const char *emacsclient[] = { "emacsclient", "-c", NULL };
 /* my dmenu scripts */
 static const char *search[] = {
 	"/home/drfailer/.config/suckless-builds/dmenu-scripts/search", NULL };
@@ -170,8 +171,8 @@ static Key keys[] = {
  	{ MODKEY|ShiftMask,    -1,     XK_agrave,         tag,         {.ui = ~0 } },
  	{ MODKEY,              -1,     XK_comma,     focusmon,          {.i = +1 } },
  	{ MODKEY,              -1,     XK_semicolon, focusmon,          {.i = -1 } },
- 	{ MODKEY|ShiftMask,    -1,     XK_comma,       tagmon,          {.i = -1 } },
- 	{ MODKEY|ShiftMask,    -1,     XK_semicolon,   tagmon,          {.i = +1 } },
+ 	{ MODKEY|ShiftMask,    -1,     XK_comma,       tagmon,          {.i = +1 } },
+ 	{ MODKEY|ShiftMask,    -1,     XK_semicolon,   tagmon,          {.i = -1 } },
 	/***************************************************************************/
 	/* Gaps:                                                                   */
 	/***************************************************************************/
@@ -195,6 +196,7 @@ static Key keys[] = {
 	/* Applications:                                                           */
 	/***************************************************************************/
  	{ MODKEY,            XK_a,     XK_d,       spawn,         {.v = dmenucmd } },
+ 	{ MODKEY,            XK_a,     XK_e,       spawn,         {.v = emacsclient } },
  	{ MODKEY,            XK_a,     XK_t,       spawn,         {.v = termcmd  } },
  	{ MODKEY,            XK_a,     XK_m,       spawn,         {.v = mailcmd  } },
  	{ MODKEY|ShiftMask,    -1,     XK_d,       spawn,         {.v = ranger   } },

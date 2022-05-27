@@ -1,5 +1,5 @@
 #!/bin/bash
 
-EMOJI_FILE="$HOME/.local/share/emojis.txt"
+EMOJI_FILE="$HOME/.local/share/math.txt"
 
 cat $EMOJI_FILE | dmenu -l 20 | awk '{ printf "%s", $1 }' | xclip -i -selection clipboard

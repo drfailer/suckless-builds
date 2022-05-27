@@ -5,8 +5,10 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "ProFont for Powerline:pixelsize=15:antialias=true:autohint=true";
 // static char *font = "Source Code Pro:pixelsize=15:antialias=true:autohint=true";
+// static char *font = "ProFont for Powerline:pixelsize=15:antialias=true:autohint=true";
+static char *font = "Hack:pixelsize=13:antialias=true:autohint=true";
+// static char *font = "terminus:pixelsize=15:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
@@ -99,26 +101,26 @@ float alpha = 1.0;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-  /* ONE: */
-	/* 8 normal colors */
-  "#282C34",
-  "#BF616A",
-  "#A3BE8C",
-  "#EBCB8B",
-  "#81A1C1",
-  "#C678DD",
-  "#51AFEF",
-  "#ABB2BF",
+  /* Dark: */
+  /* 8 normal colors */
+  "#000000",
+  "#ff8059",
+  "#44bc44",
+  "#d0bc00",
+  "#2fafff",
+  "#feacd0",
+  "#00d3d0",
+  "#f4f4f4",
 
-	/* 8 bright colors */
-  "#5c6370",
-  "#e06c75",
-  "#98c379",
-  "#d19a66",
-  "#61afef",
-  "#c678dd",
-  "#56b6c2",
-  "#ECEFF4",
+  /* 8 normal colors */
+  "#527C77",
+  "#fe6060",
+  "#4fe42f",
+  "#f0dd60",
+  "#4fafff",
+  "#ff62d4",
+  "#3fdfd0",
+  "#bfdfd0",
 
 	[255] = 0,
 
@@ -208,8 +210,8 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
- 	{ ControlMask,          XK_y,           kscrollup,      {.i = 2} },
- 	{ ControlMask,          XK_e,           kscrolldown,    {.i = 2} },
+ 	{ ControlMask,          XK_Y,           kscrollup,      {.i = 2} },
+ 	{ ControlMask,          XK_E,           kscrolldown,    {.i = 2} },
 };
 
 /*
