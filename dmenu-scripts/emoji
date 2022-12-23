@@ -1,8 +1,0 @@
-#!/bin/bash
-
-# EMOJI_FILE="$HOME/.local/share/math.txt"
-EMOJI_FILE="$HOME/.local/share/emojis.txt"
-
-icon=$(cat $EMOJI_FILE | dmenu -l 20 | awk '{ printf "%s", $1 }')
-notify-send "$icon copied !"
-printf "%s" $icon | xclip -i -selection clipboard
